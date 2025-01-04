@@ -1,17 +1,15 @@
-const socket = io("http://192.168.1.8:4000"); // Use your computer's local IP
+const socket = io("http://192.168.1.8:4000");
 const status = document.getElementById("status");
-const playerStatus = document.getElementById("player-status"); // For displaying player type (X or O)
+const playerStatus = document.getElementById("player-status");
 let room = "default-room";
 let myPlayer = null;
-let currentPlayer = null; // Store current player
-let roomData = {}; // To store room data from the server
+let currentPlayer = null;
+let roomData = {};
 
-// Join the room
 socket.emit("join-room", room);
 
-// Listen for events from the server
 socket.on("update-game", (roomDataFromServer) => {
-    roomData = roomDataFromServer; // Store room data received from server
+    roomData = roomDataFromServer;
     updateBoard(roomData.gameState);
     if (roomData.currentPlayer === myPlayer) {
         status.textContent = "Your turn!";
@@ -20,14 +18,11 @@ socket.on("update-game", (roomDataFromServer) => {
     }
 });
 
-socket.on("start-game", (roomDataFromServer) => {
-    roomData = roomDataFromServer; // Store room data received from server
-    myPlayer = myPlayer || (roomData.players[0] === socket.id ? "x" : "o"); // Assign player role if not already set
-    currentPlayer = roomData.currentPlayer; // Set the current player
-
-    // Update UI with player info
+socket.on("start-game", (message) => {
+    myPlayer = myPlayer || (roomData.players[0] === socket.id ? "x" : "o");
+    currentPlayer = roomData.currentPlayer;
     playerStatus.textContent = `You are Player ${myPlayer.toUpperCase()}`;
-    status.textContent = `Game started! Player ${myPlayer.toUpperCase()}'s turn.`;
+    status.textContent = message;
 });
 
 socket.on("waiting-for-opponent", (message) => {
@@ -36,11 +31,20 @@ socket.on("waiting-for-opponent", (message) => {
 
 socket.on("room-full", () => {
     status.textContent = "Room is full. Please wait for the next game!";
-    playerStatus.textContent = ""; // Clear player status if room is full
-    disableBoard(); // Disable the board so the user cannot play
+    playerStatus.textContent = "";
+    disableBoard();
 });
 
-// Emit a move to the server
+socket.on("game-over", (message) => {
+    status.textContent = message;
+    disableBoard();
+});
+
+socket.on("player-disconnected", (message) => {
+    status.textContent = message;
+    disableBoard();
+});
+
 function play(cell) {
     const index = parseInt(cell.id.replace("box", "")) - 1;
     if (myPlayer && currentPlayer === myPlayer && roomData.gameState[index] === "") {
@@ -56,7 +60,6 @@ function updateBoard(gameState) {
 }
 
 function disableBoard() {
-    // Disable clicks on all cells by removing the `onclick` event
     const cells = document.querySelectorAll('.box span');
     cells.forEach(cell => {
         cell.removeAttribute("onclick");

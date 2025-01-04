@@ -1,77 +1,41 @@
-body{
+body {
     background: ghostwhite;
     color: dimgray;
     font-family: serif;
     text-align: center;
 }
 
-h1{
+h1 {
     font-size: 2rem;
 }
 
-#container{
-    margin: 5% auto;
-    border-radius: 5px;
-    text-align: center;
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
-.box{
-    display: inline-block;
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid gray;
     width: 100px;
     height: 100px;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 0;
+    font-size: 50px;
 }
 
-span{
-    position: absolute;
+span {
     font-size: 75px;
     font-family: sans-serif;
     text-align: center;
     height: 75px;
     width: 75px;
-    padding: 0;
-    margin: 5px;
-    margin-left: -35px;
 }
 
-.top{
-    border-top: none;
-}
-
-.bottom{
-    border-bottom: none;
-}
-
-.left{
-    border-left: none;
-}
-
-.right{
-    border-right: none;
-}
-
-.alert{
-    height: 75px;
-    width: 125px;
-    display: inline-block;
-    background: ghostwhite;
-    position: relative;
-    z-index: 10;
-    margin-top: -50%;
-    border-radius: 20px;
-    box-shadow: 0 0 75px 2px dimgray;
-    animation: larger 0.5s;
-    animation-fill-mode: forwards;
-    box-sizing: content-box;
-    padding: 30px;
-    bottom: 50px;
-    top: 0;
-}
-
-button{
+button {
     background: dimgray;
     border-radius: 2px;
     color: ghostwhite;
@@ -79,23 +43,11 @@ button{
     outline: none;
 }
 
-button:focus{
+button:focus {
     background: silver;
 }
 
-.activeBox{
-    background: silver;
-}
-
-@keyframes larger{
-    from{
-        height: 75px;
-        width: 125px;
-    }
-
-    to{
-        height: 100px;
-        width: 250px;
-    }
-
+.alert {
+    margin-top: 10px;
+    font-size: 1rem;
 }
