@@ -49,7 +49,8 @@ p {
 }
 
 #reset-button:hover {
-    background-color: darkpurple;
+    background-color: rgb(94, 1, 94);
+    
 }
 
 .box {
