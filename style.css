@@ -3,6 +3,7 @@ body {
     color: dimgray;
     font-family: serif;
     text-align: center;
+    margin-top: 10em;
 }
 
 h1 {
@@ -22,8 +23,9 @@ p{
 }
 
 /* Adding styles for the winning and draw states */
+/* Add some styles to highlight winner and draw */
 .winner {
-    background-color: rgba(255, 217, 0, 0.973); /* Highlight winning cells */
+    background-color: gold; /* Highlight winning cells */
     color: white;
     font-weight: bold;
 }
@@ -35,6 +37,23 @@ p{
 .occupied {
     pointer-events: none; /* Prevent further clicks on occupied cells */
 }
+
+/* Optional: Style for the reset button */
+#reset-button {
+    margin-top: 20px;
+    padding: 1em;
+    border-radius: 1em;
+    font: large sans-serif;
+    background-color: purple;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#reset-button:hover {
+    background-color: darkpurple;
+}
+
 
 .box {
     display: inline-block;

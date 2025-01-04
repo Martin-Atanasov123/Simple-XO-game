@@ -20,7 +20,7 @@ function play(cell) {
         if (!isGameOver) {
             setTimeout(() => {
                 aiMove();  // After a short delay, AI makes its move
-            }, 10);  // Delay AI move to give some time for the player move
+            }, 500);  // Delay AI move to give some time for the player move
         }
     }
 }
@@ -36,7 +36,7 @@ function aiMove() {
     cells[aiMoveIndex].innerHTML = 'O';  // Update the cell visually with "O"
     cells[aiMoveIndex].classList.add('occupied');  // Mark cell as occupied
     currentPlayer = 'X';  // Switch back to player X
-    status.textContent = "Your turn";  // Update the status
+    status.textContent = "Player X's turn";  // Update the status
 
     checkWinner();  // Check if there's a winner after AI move
 }
@@ -55,7 +55,8 @@ function checkWinner() {
             // Color the winning cells and display an alert
             setTimeout(() => {
                 alert(`${gameState[a]} wins!`);
-            }, 20);
+                resetGame();  // Reset the game after a win
+            }, 200);
 
             // Highlight the winning cells
             highlightCells(combination, 'winner');
@@ -69,7 +70,8 @@ function checkWinner() {
     if (!gameState.includes('')) {
         setTimeout(() => {
             alert("It's a draw!");  // Show draw if all cells are filled
-        }, 20);
+            resetGame();  // Reset the game after a draw
+        }, 200);
 
         // Highlight all cells with the draw color
         cells.forEach(cell => cell.classList.add('draw'));
