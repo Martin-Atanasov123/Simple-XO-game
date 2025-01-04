@@ -21,7 +21,8 @@ Welcome to **Tic-Tac-Toe-Game**, a fun and interactive single-player Tic-Tac-Toe
 ---
 
 ## 📸 Screenshots
-![Game Board Example](path-to-your-screenshot)  
+![Game Board Example](![Screenshot 2025-01-04 220118](https://github.com/user-attachments/assets/a047deb4-cd43-4a8d-b99d-6ea9adaa0ee2)
+)  
 _A vibrant game board with clear visuals for X and O, and colorful highlights for winners!_
 
 ---
