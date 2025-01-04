@@ -1,5 +1,5 @@
 body {
-    background: rgb(71, 71, 82);
+    background: #1E1E2E;
     color: dimgray;
     font-family: serif;
     text-align: center;
@@ -62,6 +62,7 @@ p {
     height: 100px;
     margin: 5px;
     background-color: rgb(169, 170, 170);
+    background-color: #444444;
     border: 1px solid gray;
     font-size: 50px;
 }
