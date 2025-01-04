@@ -20,7 +20,7 @@ function play(cell) {
         span.textContent = 'X';  // Update the cell visually with "X"
         cell.classList.add('occupied');  // Mark cell as occupied
         currentPlayer = 'O';  // Switch to AI (Player O)
-        updateStatus("AI's turn");  // Update the status text
+        updateStatus("AI's turn 🤖");  // Update the status text
 
         checkWinner();  // Check if there's a winner after player move
         if (!isGameOver) {
@@ -51,7 +51,7 @@ function aiMove() {
     cells[aiMoveIndex].querySelector('span').textContent = 'O';  // Update the cell visually with "O"
     cells[aiMoveIndex].classList.add('occupied');  // Mark cell as occupied
     currentPlayer = 'X';  // Switch back to player X
-    updateStatus("Your turn");  // Update the status text
+    updateStatus("Your turn 🙂");  // Update the status text
 
     checkWinner();  // Check if there's a winner after AI move
 }
@@ -72,7 +72,7 @@ function checkWinner() {
 
             // Color the winning cells and display an alert
             setTimeout(() => {
-                alert(`${gameState[a]} wins!`);
+                alert(`${gameState[a]} wins! 🏆`);
                 resetGame();  // Reset the game after a win
             }, 20);
 
