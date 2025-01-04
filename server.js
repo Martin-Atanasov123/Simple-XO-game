@@ -60,6 +60,6 @@ io.on("connection", (socket) => {
 
 // Start the server
 server.listen(4000, () => {
-    console.log("Server running on http://192.168.1.8:4000");
+    console.log("Server running on ");
 });
 
