@@ -36,7 +36,7 @@ function aiMove() {
     cells[aiMoveIndex].innerHTML = 'O';  // Update the cell visually with "O"
     cells[aiMoveIndex].classList.add('occupied');  // Mark cell as occupied
     currentPlayer = 'X';  // Switch back to player X
-    status.textContent = "Player X's turn";  // Update the status
+    status.textContent = "Your turn";  // Update the status
 
     checkWinner();  // Check if there's a winner after AI move
 }

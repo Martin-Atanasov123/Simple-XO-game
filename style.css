@@ -1,5 +1,5 @@
 body {
-    background: ghostwhite;
+    background: rgb(71, 71, 82);
     color: dimgray;
     font-family: serif;
     text-align: center;
@@ -7,12 +7,16 @@ body {
 
 h1 {
     font-size: 2rem;
+    color: ghostwhite;
+}
+p{
+    font-size: 1.5rem;
+    color: ghostwhite;
 }
 
 #game-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
     max-width: 320px;
     margin: 0 auto;
 }
@@ -34,13 +38,16 @@ h1 {
 
 .box {
     display: inline-block;
-    border: 1px solid gray;
+    cursor: pointer; /* Make the cursor a pointer when hovering over cells */
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 7px;
     width: 100px;
     height: 100px;
-    text-align: center;
-    box-sizing: border-box;
+    margin: 5px;
+    background-color: rgb(169, 170, 170);
+    border: 1px solid gray;
     font-size: 50px;
-    cursor: pointer; /* Make the cursor a pointer when hovering over cells */
 }
 
 .box:hover {
