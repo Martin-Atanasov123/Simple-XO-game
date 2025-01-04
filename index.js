@@ -72,7 +72,7 @@ function checkWinner() {
 
             // Color the winning cells and display an alert
             setTimeout(() => {
-                alert(`${gameState[a]} wins! 🏆`);
+                alert(` 🥇 ${gameState[a]} wins! 🏆`);
                 resetGame();  // Reset the game after a win
             }, 20);
 
@@ -106,7 +106,7 @@ function highlightCells(indices, className) {
 function resetGame() {
     gameState = Array(9).fill('');
     currentPlayer = 'X';
-    updateStatus("Your turn");  // Set the status back to Player X's turn
+    updateStatus("Your turn🫵");  // Set the status back to Player X's turn
     isGameOver = false;
     cells.forEach(cell => {
         cell.querySelector('span').textContent = '';
