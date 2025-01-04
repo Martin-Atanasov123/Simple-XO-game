@@ -17,7 +17,7 @@ io.on("connection", (socket) => {
     // When a player joins a room
     socket.on("join-room", (room) => {
         if (!rooms[room]) {
-            rooms[room] = { players: [], gameState: Array(9).fill(""), currentPlayer: "x" };
+            rooms[room] = { players: [], gameState: Array(9).fill(""), currentPlayer: "x" }; // Set the first player to be "x"
         }
 
         const roomData = rooms[room];
@@ -30,7 +30,10 @@ io.on("connection", (socket) => {
             io.to(room).emit("update-game", roomData);
 
             if (roomData.players.length === 2) {
-                io.to(room).emit("start-game", "Game started! Player X's turn.");
+                // Notify both players to start the game, set player X to start
+                const currentPlayer = roomData.players[0] === socket.id ? "x" : "o";
+                io.to(room).emit("start-game", `Game started! Player ${currentPlayer}'s turn.`);
+                roomData.currentPlayer = currentPlayer; // Assign the first player's turn
             } else {
                 socket.emit("waiting-for-opponent", "Waiting for another player to join...");
             }
@@ -44,7 +47,7 @@ io.on("connection", (socket) => {
         const roomData = rooms[room];
         if (roomData && roomData.gameState[index] === "" && roomData.currentPlayer === player) {
             roomData.gameState[index] = player;
-            roomData.currentPlayer = player === "x" ? "o" : "x";
+            roomData.currentPlayer = player === "x" ? "o" : "x"; // Switch the turn to the next player
             io.to(room).emit("update-game", roomData);
         }
     });
@@ -56,6 +59,7 @@ io.on("connection", (socket) => {
 });
 
 // Start the server
-server.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+server.listen(4000, () => {
+    console.log("Server running on http://192.168.1.8:4000");
 });
+
