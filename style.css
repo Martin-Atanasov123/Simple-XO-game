@@ -10,7 +10,8 @@ h1 {
     font-size: 2rem;
     color: ghostwhite;
 }
-p{
+
+p {
     font-size: 1.5rem;
     color: ghostwhite;
 }
@@ -22,23 +23,20 @@ p{
     margin: 0 auto;
 }
 
-/* Adding styles for the winning and draw states */
-/* Add some styles to highlight winner and draw */
 .winner {
-    background-color: gold; /* Highlight winning cells */
+    background-color: gold;
     color: white;
     font-weight: bold;
 }
 
 .draw {
-    background-color: lightgray; /* Highlight cells in case of draw */
+    background-color: lightgray;
 }
 
 .occupied {
-    pointer-events: none; /* Prevent further clicks on occupied cells */
+    pointer-events: none;
 }
 
-/* Optional: Style for the reset button */
 #reset-button {
     margin-top: 20px;
     padding: 1em;
@@ -54,10 +52,9 @@ p{
     background-color: darkpurple;
 }
 
-
 .box {
     display: inline-block;
-    cursor: pointer; /* Make the cursor a pointer when hovering over cells */
+    cursor: pointer;
     box-sizing: border-box;
     text-align: center;
     border-radius: 7px;
@@ -70,16 +67,17 @@ p{
 }
 
 .box:hover {
-    background-color: lightgray; /* Highlight cells on hover */
+    background-color: rgb(218, 216, 216);
 }
 
-
 span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
     font-size: 75px;
     font-family: sans-serif;
     text-align: center;
-    height: 75px;
-    width: 75px;
+    line-height: 100px; /* Vertically center X and O */
 }
 
 button {

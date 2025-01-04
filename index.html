@@ -9,29 +9,28 @@
 </head> 
 <body>
     <h1>Single Player XO Game!</h1>
-    <p id="status">Your turn!</p>
-    
+    <p id="status">Player X's turn!</p>
     
     <div id="game-board">
         <div class="block">
-            <div id="box1" class="box"><span onclick="play(this)">&nbsp;</span></div>
-            <div id="box2" class="box"><span onclick="play(this)">&nbsp;</span></div>
-            <div id="box3" class="box"><span onclick="play(this)">&nbsp;</span></div>
+            <div class="box" data-index="0"><span></span></div>
+            <div class="box" data-index="1"><span></span></div>
+            <div class="box" data-index="2"><span></span></div>
         </div>
         <div class="block">
-            <div id="box4" class="box"><span onclick="play(this)">&nbsp;</span></div>
-            <div id="box5" class="box"><span onclick="play(this)">&nbsp;</span></div>
-            <div id="box6" class="box"><span onclick="play(this)">&nbsp;</span></div>
+            <div class="box" data-index="3"><span></span></div>
+            <div class="box" data-index="4"><span></span></div>
+            <div class="box" data-index="5"><span></span></div>
         </div>
         <div class="block">
-            <div id="box7" class="box"><span onclick="play(this)">&nbsp;</span></div>
-            <div id="box8" class="box"><span onclick="play(this)">&nbsp;</span></div>
-            <div id="box9" class="box"><span onclick="play(this)">&nbsp;</span></div>
+            <div class="box" data-index="6"><span></span></div>
+            <div class="box" data-index="7"><span></span></div>
+            <div class="box" data-index="8"><span></span></div>
         </div>
     </div>
+    
     <button id="reset-button" onclick="resetGame()">Restart Game</button>
 
     <script src="index.js"></script>
 </body>
 </html>
-
