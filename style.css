@@ -1,0 +1,74 @@
+body {
+    background: ghostwhite;
+    color: dimgray;
+    font-family: serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Adding styles for the winning and draw states */
+.winner {
+    background-color: rgba(255, 217, 0, 0.973); /* Highlight winning cells */
+    color: white;
+    font-weight: bold;
+}
+
+.draw {
+    background-color: lightgray; /* Highlight cells in case of draw */
+}
+
+.occupied {
+    pointer-events: none; /* Prevent further clicks on occupied cells */
+}
+
+.box {
+    display: inline-block;
+    border: 1px solid gray;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 50px;
+    cursor: pointer; /* Make the cursor a pointer when hovering over cells */
+}
+
+.box:hover {
+    background-color: lightgray; /* Highlight cells on hover */
+}
+
+
+span {
+    font-size: 75px;
+    font-family: sans-serif;
+    text-align: center;
+    height: 75px;
+    width: 75px;
+}
+
+button {
+    background: dimgray;
+    border-radius: 2px;
+    color: ghostwhite;
+    border: none;
+    outline: none;
+}
+
+button:focus {
+    background: silver;
+}
+
+.alert {
+    margin-top: 10px;
+    font-size: 1rem;
+}
